@@ -2,7 +2,7 @@
  * Global Configuration for the Sales Page
  * Replace the KIWIFY_LINK with your actual Kiwify checkout link.
  */
-export const KIWIFY_LINK = "https://pay.kiwify.com.br/xxxxx"; // Substitua aqui pelo seu link da Kiwify
+export const KIWIFY_LINK = "https://pay.kiwify.com.br/kVd2Pug"; // Substitua aqui pelo seu link da Kiwify
 
 export const PRODUCT_INFO = {
   title: "A Bíblia para Todos os Momentos da Vida",
