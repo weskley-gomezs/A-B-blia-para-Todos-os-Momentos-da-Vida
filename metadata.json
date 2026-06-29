@@ -1,0 +1,6 @@
+{
+  "name": "A Bíblia para Todos os Momentos da Vida",
+  "description": "Landing page premium, minimalista e de alta conversão para o eBook cristão com 100 estudos bíblicos práticos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
