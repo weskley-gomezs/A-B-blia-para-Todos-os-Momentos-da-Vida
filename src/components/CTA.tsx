@@ -1,11 +1,8 @@
 import { motion } from "motion/react";
 import { ArrowRight, Lock, Sparkles, ShieldCheck, Clock } from "lucide-react";
 import { KIWIFY_LINK, PRODUCT_INFO } from "../config";
-import { useCountdown } from "../hooks/useCountdown";
 
 export default function CTA() {
-  const { formattedTime } = useCountdown();
-
   return (
     <section className="relative overflow-hidden py-24 md:py-32 bg-brand-black text-white" id="cta-section">
       {/* Decorative colored glow orbs */}
@@ -51,13 +48,10 @@ export default function CTA() {
             </p>
           </div>
 
-          {/* Real-time urgency countdown bar */}
-          <div className="mt-6 flex items-center justify-center gap-2 text-xs font-semibold text-gold bg-gold/5 border border-gold/20 rounded-xl py-2.5 px-4 max-w-sm mx-auto shadow-sm">
-            <Clock className="h-4 w-4 animate-pulse text-gold" />
-            <span>Oferta de R$ 97 por R$ 37,90 expira em:</span>
-            <span className="font-mono text-brand-black bg-gold px-2 py-0.5 rounded font-black tracking-widest">
-              {formattedTime}
-            </span>
+          {/* Static limited offer warning bar */}
+          <div className="mt-6 flex items-center justify-center gap-2 text-xs font-semibold text-gold bg-gold/5 border border-gold/20 rounded-xl py-2.5 px-4 max-w-sm mx-auto shadow-sm animate-pulse">
+            <Clock className="h-4 w-4 text-gold" />
+            <span>OFERTA LIMITADA: De R$ 97,00 por apenas R$ 37,90!</span>
           </div>
 
           {/* Huge CTA button - Gold with black text for maximum click attraction */}

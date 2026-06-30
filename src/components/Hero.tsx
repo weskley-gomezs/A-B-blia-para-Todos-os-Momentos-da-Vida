@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import { ArrowRight, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { KIWIFY_LINK, PRODUCT_INFO } from "../config";
 import { WatermarkCross, WatermarkCrown } from "./ChristianIcons";
-import { useCountdown } from "../hooks/useCountdown";
 
 // New requested mockup image URL
 const COVER_IMAGE_PATH = "https://i.imgur.com/iBBoVUl.png";
@@ -11,7 +10,7 @@ const COVER_IMAGE_PATH = "https://i.imgur.com/iBBoVUl.png";
 const THEMES = {
   ansiedade: {
     badge: "Para quem sente a mente acelerada e busca paz",
-    title: "A ansiedade tem roubado o seu sono e a sua paz?",
+    title: "A ansiedade tem roubado o seu acesso à paz?",
     subtitle: "Encontre o descanso que sua alma precisa com um método de estudo bíblico real, profundo e focado na verdade inabalável das Escrituras.",
     cta: "Quero começar a estudar agora e acalmar minha mente"
   },
@@ -37,7 +36,6 @@ const THEMES = {
 
 export default function Hero() {
   const [activeTheme, setActiveTheme] = useState<"ansiedade" | "medo" | "casamento" | "default">("default");
-  const { formattedTime } = useCountdown();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -134,13 +132,10 @@ export default function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
-              {/* Dynamic live timer for urgency */}
-              <div className="flex items-center justify-center lg:justify-start gap-2 text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg py-2 px-3.5 max-w-sm mx-auto lg:mx-0 shadow-sm">
-                <Clock className="h-3.5 w-3.5 animate-pulse text-red-600" />
-                <span>ATENÇÃO: O desconto de <span className="line-through text-gray-500">R$ 97</span> por <span className="font-extrabold text-red-700">R$ 37,90</span> expira em:</span>
-                <span className="font-mono text-white bg-red-600 px-1.5 py-0.5 rounded font-black tracking-wider text-[11px]">
-                  {formattedTime}
-                </span>
+              {/* Static warning badge */}
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg py-2 px-3.5 max-w-sm mx-auto lg:mx-0 shadow-sm animate-pulse">
+                <Clock className="h-3.5 w-3.5 text-red-600" />
+                <span>ATENÇÃO: Desconto especial de <span className="line-through text-gray-500">R$ 97,00</span> por <span className="font-extrabold text-red-700">R$ 37,90</span> — OFERTA LIMITADA!</span>
               </div>
             </motion.div>
 
