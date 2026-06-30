@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import Preview from "./components/Preview";
 import Benefits from "./components/Benefits";
 import Topics from "./components/Topics";
+import Bonus from "./components/Bonus";
 import Audience from "./components/Audience";
 import Author from "./components/Author";
 import Guarantee from "./components/Guarantee";
@@ -33,6 +34,9 @@ export default function App() {
 
         {/* Topics Section */}
         <Topics />
+
+        {/* Exclusive Bonus Section */}
+        <Bonus />
 
         {/* Target Audience Section */}
         <Audience />
