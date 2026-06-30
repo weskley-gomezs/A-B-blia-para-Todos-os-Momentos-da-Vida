@@ -108,7 +108,7 @@ export default function Topics() {
             </h2>
           </div>
           <p className="max-w-md text-center text-sm leading-relaxed text-gray-300 md:text-left font-light">
-            Não importa a estação ou momento de dúvida que você esteja atravessando. Você encontrará uma palavra de direção, consolo e sabedoria fundamentada diretamente nas Escrituras Sagradas.
+            Se a ansiedade, o medo ou as dúvidas no casamento te acompanham, saiba que não importa a estação ou momento de aflição que você esteja atravessando, há uma palavra de direção, consolo e sabedoria fundamentada diretamente nas Escrituras Sagradas.
           </p>
         </div>
 

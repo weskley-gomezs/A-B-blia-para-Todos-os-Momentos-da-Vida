@@ -43,9 +43,9 @@ export default function Author() {
               {/* Premium Card Container */}
               <div className="relative overflow-hidden rounded-2xl border border-gold/25 bg-white p-3 shadow-2xl">
                 <img
-                  src="https://i.imgur.com/GbCFg94.jpeg"
+                  src="https://i.imgur.com/A7gEFvt.png"
                   alt="Weskley Gomes - Autor"
-                  className="aspect-[4/5] w-full rounded-xl object-cover object-center filter grayscale contrast-115 hover:grayscale-0 transition-all duration-700"
+                  className="aspect-[4/5] w-full rounded-xl object-cover object-center shadow-sm transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
                 

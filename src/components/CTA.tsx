@@ -1,8 +1,11 @@
 import { motion } from "motion/react";
-import { ArrowRight, Lock, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, Lock, Sparkles, ShieldCheck, Clock } from "lucide-react";
 import { KIWIFY_LINK, PRODUCT_INFO } from "../config";
+import { useCountdown } from "../hooks/useCountdown";
 
 export default function CTA() {
+  const { formattedTime } = useCountdown();
+
   return (
     <section className="relative overflow-hidden py-24 md:py-32 bg-brand-black text-white" id="cta-section">
       {/* Decorative colored glow orbs */}
@@ -29,7 +32,7 @@ export default function CTA() {
 
           {/* Explanatory text */}
           <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-gray-300 font-light md:text-base">
-            Tenha em suas mãos uma fonte inesgotável de sabedoria teológica prática para direcionar seus passos, acalmar sua mente e estreitar seus laços com o Altíssimo.
+            Tenha em suas mãos o caminho prático e teológico para vencer a ansiedade e o medo, restaurar seu casamento e ter a direção divina em cada decisão cotidiana.
           </p>
 
           {/* Pricing Highlight Card with beautiful gold/black play */}
@@ -48,8 +51,17 @@ export default function CTA() {
             </p>
           </div>
 
+          {/* Real-time urgency countdown bar */}
+          <div className="mt-6 flex items-center justify-center gap-2 text-xs font-semibold text-gold bg-gold/5 border border-gold/20 rounded-xl py-2.5 px-4 max-w-sm mx-auto shadow-sm">
+            <Clock className="h-4 w-4 animate-pulse text-gold" />
+            <span>Oferta de R$ 97 por R$ 37,90 expira em:</span>
+            <span className="font-mono text-brand-black bg-gold px-2 py-0.5 rounded font-black tracking-widest">
+              {formattedTime}
+            </span>
+          </div>
+
           {/* Huge CTA button - Gold with black text for maximum click attraction */}
-          <div className="mt-8 flex flex-col items-center justify-center gap-4">
+          <div className="mt-6 flex flex-col items-center justify-center gap-4">
             <a
               href={KIWIFY_LINK}
               target="_blank"
@@ -57,7 +69,7 @@ export default function CTA() {
               id="cta-final-buy-button"
               className="group flex w-full max-w-sm items-center justify-center gap-3 rounded-xl bg-gold py-4.5 text-sm font-bold tracking-wide text-brand-black shadow-lg shadow-gold/20 transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-white/10 hover:scale-[1.01]"
             >
-              <span>Quero Comprar Agora</span>
+              <span>Sim! Quero Começar a Estudar Agora</span>
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 

@@ -84,7 +84,7 @@ export default function Benefits() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-base text-brand-gray/85 md:text-lg font-light"
           >
-            Muito mais do que uma leitura simples, cada um dos 100 estudos foi estruturado com rigor teológico e foco na sua aplicação prática e crescimento pessoal.
+            Seja para vencer a ansiedade, acalmar o medo do futuro ou restaurar seu casamento, cada um dos 100 estudos foi estruturado com rigor teológico e foco na sua aplicação prática para trazer paz real ao seu coração.
           </motion.p>
         </div>
 

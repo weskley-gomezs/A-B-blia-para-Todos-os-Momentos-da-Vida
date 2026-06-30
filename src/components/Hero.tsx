@@ -1,12 +1,57 @@
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { KIWIFY_LINK, PRODUCT_INFO } from "../config";
 import { WatermarkCross, WatermarkCrown } from "./ChristianIcons";
+import { useCountdown } from "../hooks/useCountdown";
 
 // New requested mockup image URL
 const COVER_IMAGE_PATH = "https://i.imgur.com/iBBoVUl.png";
 
+const THEMES = {
+  ansiedade: {
+    badge: "Para quem sente a mente acelerada e busca paz",
+    title: "A ansiedade tem roubado o seu sono e a sua paz?",
+    subtitle: "Encontre o descanso que sua alma precisa com um método de estudo bíblico real, profundo e focado na verdade inabalável das Escrituras.",
+    cta: "Quero começar a estudar agora e acalmar minha mente"
+  },
+  medo: {
+    badge: "Para quem teme o amanhã e busca direção clara",
+    title: "O medo do futuro e a incerteza paralisam as suas decisões?",
+    subtitle: "Recupere a coragem e a clareza de direção através de um estudo diário e teológico das Escrituras para os seus dias mais difíceis.",
+    cta: "Quero começar a estudar agora e vencer o medo"
+  },
+  casamento: {
+    badge: "Para quem deseja blindar e restaurar o lar",
+    title: "As crises e o desgaste diário estão minando o seu casamento?",
+    subtitle: "Descubra princípios bíblicos práticos para restaurar a comunicação, blindar sua união e trazer a paz de Deus de volta à sua família.",
+    cta: "Quero começar a estudar agora e restaurar meu lar"
+  },
+  default: {
+    badge: "Acesso Digital Imediato • PDF Premium",
+    title: "A Bíblia tem a resposta exata para as aflições que você enfrenta hoje",
+    subtitle: "100 estudos bíblicos estruturados com rigor teológico e aplicação diária para vencer a ansiedade, o medo e proteger sua família.",
+    cta: "Quero começar a estudar agora"
+  }
+};
+
 export default function Hero() {
+  const [activeTheme, setActiveTheme] = useState<"ansiedade" | "medo" | "casamento" | "default">("default");
+  const { formattedTime } = useCountdown();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchStr = window.location.search.toLowerCase();
+      if (searchStr.includes("ansiedade") || searchStr.includes("ansioso") || searchStr.includes("sono") || searchStr.includes("preocupacao")) {
+        setActiveTheme("ansiedade");
+      } else if (searchStr.includes("medo") || searchStr.includes("futuro") || searchStr.includes("incerteza") || searchStr.includes("paralisa")) {
+        setActiveTheme("medo");
+      } else if (searchStr.includes("casamento") || searchStr.includes("lar") || searchStr.includes("familia") || searchStr.includes("casal") || searchStr.includes("comunicacao") || searchStr.includes("crise")) {
+        setActiveTheme("casamento");
+      }
+    }
+  }, []);
+
   return (
     <section className="relative overflow-hidden py-16 md:py-24 lg:py-32 bg-radial from-brand-offwhite via-brand-beige/20 to-brand-offwhite" id="hero-section">
       {/* Premium ambient light glow (Stripe/Apple style) */}
@@ -30,7 +75,7 @@ export default function Hero() {
               className="mx-auto mb-5 flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-gold-dark lg:mx-0 lg:w-fit"
             >
               <Sparkles className="h-3.5 w-3.5 animate-pulse text-gold-dark" />
-              <span>Acesso Digital Imediato • PDF Premium</span>
+              <span>{THEMES[activeTheme].badge}</span>
             </motion.div>
 
             {/* Main Heading */}
@@ -40,7 +85,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="serif-heading text-4xl font-light leading-tight tracking-tight text-brand-black sm:text-5xl md:text-6xl"
             >
-              {PRODUCT_INFO.title}
+              {THEMES[activeTheme].title}
             </motion.h1>
 
             {/* Subheading */}
@@ -50,7 +95,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 text-base leading-relaxed text-brand-gray/95 sm:text-lg md:text-xl font-light"
             >
-              100 estudos bíblicos completos para encontrar direção, fortalecer sua fé e viver os ensinamentos da Palavra de Deus no seu dia a dia.
+              {THEMES[activeTheme].subtitle}
             </motion.p>
 
             {/* Price Showcase with gold highlighting */}
@@ -76,18 +121,27 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start"
+              className="mt-8 flex flex-col gap-4 sm:justify-start"
             >
               <a
                 href={KIWIFY_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-buy-button"
-                className="group flex items-center justify-center gap-2.5 rounded-xl bg-brand-black px-10 py-5 text-sm font-semibold tracking-wide text-brand-offwhite shadow-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-xl hover:shadow-gold/25"
+                className="group flex items-center justify-center gap-2.5 rounded-xl bg-brand-black px-10 py-5 text-sm font-semibold tracking-wide text-brand-offwhite shadow-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-xl hover:shadow-gold/25 text-center"
               >
-                <span>Quero o eBook Agora</span>
+                <span>{THEMES[activeTheme].cta}</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
+
+              {/* Dynamic live timer for urgency */}
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg py-2 px-3.5 max-w-sm mx-auto lg:mx-0 shadow-sm">
+                <Clock className="h-3.5 w-3.5 animate-pulse text-red-600" />
+                <span>ATENÇÃO: O desconto de <span className="line-through text-gray-500">R$ 97</span> por <span className="font-extrabold text-red-700">R$ 37,90</span> expira em:</span>
+                <span className="font-mono text-white bg-red-600 px-1.5 py-0.5 rounded font-black tracking-wider text-[11px]">
+                  {formattedTime}
+                </span>
+              </div>
             </motion.div>
 
             {/* Micro-guarantees */}

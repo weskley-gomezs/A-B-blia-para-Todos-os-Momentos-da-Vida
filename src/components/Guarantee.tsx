@@ -28,7 +28,7 @@ export default function Guarantee() {
 
           {/* Copywriter text */}
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-gray-300 font-light md:text-base">
-            Temos plena convicção no impacto espiritual e prático que este material trará para a sua vida. Por isso, oferecemos uma <strong className="text-white font-semibold">garantia incondicional de 7 dias</strong>. 
+            Temos plena convicção no impacto espiritual e prático que este material trará para te libertar da ansiedade e do medo, bem como restaurar a paz no seu casamento. Por isso, oferecemos uma <strong className="text-white font-semibold">garantia incondicional de 7 dias</strong>. 
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-gray-400 font-light">
             Se por qualquer motivo você achar que o conteúdo não é para você ou não fortalecer a sua fé, basta nos enviar um e-mail. Nós devolveremos 100% do seu investimento, sem questionamentos, sem burocracia. O risco é todo nosso.

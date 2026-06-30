@@ -5,11 +5,10 @@
 
 import StickyCTA from "./components/StickyCTA";
 import Hero from "./components/Hero";
+import Preview from "./components/Preview";
 import Benefits from "./components/Benefits";
 import Topics from "./components/Topics";
-import Preview from "./components/Preview";
 import Audience from "./components/Audience";
-import Testimonials from "./components/Testimonials";
 import Author from "./components/Author";
 import Guarantee from "./components/Guarantee";
 import FAQ from "./components/FAQ";
@@ -26,20 +25,17 @@ export default function App() {
         {/* Hero Section */}
         <Hero />
 
+        {/* Book Page Preview Section (Moved immediately under Hero) */}
+        <Preview />
+
         {/* Benefits Section */}
         <Benefits />
 
         {/* Topics Section */}
         <Topics />
 
-        {/* Book Page Preview Section */}
-        <Preview />
-
         {/* Target Audience Section */}
         <Audience />
-
-        {/* Testimonials (Social Proof) Section */}
-        <Testimonials />
 
         {/* Author Biography Section */}
         <Author />

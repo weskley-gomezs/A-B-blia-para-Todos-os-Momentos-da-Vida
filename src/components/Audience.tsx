@@ -43,7 +43,7 @@ export default function Audience() {
               Este Livro Foi Escrito para Você?
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-gray-300 font-light md:text-base">
-              Desenvolvemos este eBook especificamente para suprir as lacunas que impedem muitos cristãos de desenvolverem uma comunhão madura, frequente e revigorante com a verdade das Escrituras.
+              Se você sente que a ansiedade diária sufoca seus momentos com Deus, se o medo do amanhã paralisa suas orações ou se as crises no casamento trazem desgaste para o seu lar, este eBook foi escrito especificamente para você, trazendo respostas bíblicas reais para fortalecer sua comunhão diária.
             </p>
             
             {/* Visual element / quote */}

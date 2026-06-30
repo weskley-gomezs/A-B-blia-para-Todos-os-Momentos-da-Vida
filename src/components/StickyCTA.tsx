@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ShieldCheck, ArrowRight } from "lucide-react";
+import { ShieldCheck, ArrowRight, Clock } from "lucide-react";
 import { KIWIFY_LINK, PRODUCT_INFO } from "../config";
+import { useCountdown } from "../hooks/useCountdown";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
+  const { formattedTime, isExpired } = useCountdown();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,18 +25,23 @@ export default function StickyCTA() {
   return (
     <>
       {/* Top Scarcity Alert Announcement Bar - Permanent at the very top */}
-      <div className="bg-brand-black text-white py-2.5 px-4 text-center text-[11px] font-semibold tracking-wider uppercase border-b border-gold/20 flex flex-wrap items-center justify-center gap-2">
-        <span className="inline-block bg-gold px-1.5 py-0.5 rounded text-[9px] font-extrabold text-brand-black animate-pulse">
-          OFERTA DE HOJE
+      <div className="bg-brand-black text-white py-2.5 px-4 text-center text-xs font-semibold tracking-wider uppercase border-b border-gold/20 flex flex-wrap items-center justify-center gap-2 sticky top-0 z-50 shadow-md">
+        <span className="inline-flex items-center gap-1 bg-red-600 px-2 py-0.5 rounded text-[10px] font-extrabold text-white animate-pulse">
+          <Clock className="h-3 w-3" /> OFERTA POR TEMPO LIMITADO
         </span>
-        <span>Apenas R$ 37,90. Promoção de Lançamento expira em breve.</span>
+        <span className="text-[11px] sm:text-xs">
+          De <span className="line-through text-gray-400">R$ 97,00</span> por apenas <span className="text-gold font-extrabold">R$ 37,90</span>! Seu desconto expira em: 
+        </span>
+        <span className="font-mono text-gold font-black bg-white/10 px-2 py-0.5 rounded text-xs tracking-widest min-w-[55px] inline-block shadow-inner">
+          {formattedTime}
+        </span>
         <a
           href={KIWIFY_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gold underline hover:text-white transition-colors duration-200 ml-1 font-bold"
+          className="text-gold hover:text-white transition-colors duration-200 ml-1 font-bold underline decoration-dotted text-[11px] sm:text-xs"
         >
-          Aproveitar Desconto ⚡
+          Aproveitar Desconto Agora ⚡
         </a>
       </div>
 

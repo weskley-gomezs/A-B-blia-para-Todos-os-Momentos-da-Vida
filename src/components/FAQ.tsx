@@ -28,6 +28,10 @@ const FAQ_ITEMS: FAQItem[] = [
     question: "Serve para novos convertidos ou pessoas que estão começando?",
     answer: "Sim! Ele foi escrito especificamente com uma linguagem acolhedora, clara e didática. É excelente tanto para novos convertidos que desejam aprender a estudar a Bíblia quanto para cristãos maduros que querem renovar seu hábito devocional diário.",
   },
+  {
+    question: "O livro realmente aborda problemas práticos como ansiedade, medo e casamento?",
+    answer: "Sim, absolutamente. Os 100 estudos foram divididos em temas cruciais da vida real. Há capítulos inteiros dedicados especificamente a como vencer a ansiedade e as preocupações diárias, como superar o medo do amanhã e do futuro, e como guiar e blindar o casamento e a família de acordo com os conselhos e princípios das Escrituras Sagradas.",
+  }
 ];
 
 export default function FAQ() {
